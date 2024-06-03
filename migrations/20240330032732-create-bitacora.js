@@ -27,7 +27,7 @@ module.exports = {
             },
             fecha: {
                 type: Sequelize.DATE,
-                defaultValue: Sequelize.fn("NOW")
+                defaultValue: Sequelize.NOW
             },
             createdAt: {
                 allowNull: false,
