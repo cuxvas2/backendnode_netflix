@@ -4,6 +4,10 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.bulkInsert('categoriapelicula', [
+            /**
+             *  SI SE VUELVE A EJECCUTAR ESTE SEEDER SIN RECONSTRUIR LAS TABLAS, 
+             *  LOS IDS DE LAS PELICULAS Y CATEGORIAS ENTRARÁN EN CONFLICTO
+             * **/
             { peliculaid: 1, categoriaid: 6, createdAt: new Date(), updatedAt: new Date() },
             { peliculaid: 2, categoriaid: 6, createdAt: new Date(), updatedAt: new Date() },
             { peliculaid: 2, categoriaid: 8, createdAt: new Date(), updatedAt: new Date() },

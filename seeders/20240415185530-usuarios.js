@@ -15,8 +15,8 @@ module.exports = {
         ]);
 
         await queryInterface.bulkInsert('usuario', [
-            { id: crypto.randomUUID(), email: 'cuxvas@uv.mx', passwordhash: await bcrypt.hash('patito', 10), nombre: 'victor Cuevas', rolid: AdministradorUUID, protegido: true, createdAt: new Date(), updatedAt: new Date() },
-            { id: crypto.randomUUID(), email: 'patito@uv.mx', passwordhash: await bcrypt.hash('patito', 10), nombre: 'Usuario patito', rolid: UsuarioUUID, createdAt: new Date(), updatedAt: new Date() }
+            { id: crypto.randomUUID(), email: 'cuxvas@uv.mx', passwordhash: await bcrypt.hash('patito', 10), nombre: 'Victor Cuevas', rolid: AdministradorUUID, protegido: true, createdAt: new Date(), updatedAt: new Date() },
+            { id: crypto.randomUUID(), email: 'fernando@uv.mx', passwordhash: await bcrypt.hash('Fernando321', 10), nombre: 'Fernando Elotlan', rolid: UsuarioUUID, createdAt: new Date(), updatedAt: new Date() }
         ]);
     },
 
