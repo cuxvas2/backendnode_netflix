@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // Cors
 var corsOptions = {
-    origin: ["http://localhost:3001", "http://localhost:8086"],
+    //origin: ["http://localhost:3001", "http://localhost:8086"],
     methods: "GET,PUT,POST,DELETE",
 }
 app.use(cors(corsOptions))
@@ -40,7 +40,7 @@ const errorlogger = require('./middlewares/errorlogger.middleware')
 const errorhandler = require('./middlewares/errorhandler.middleware')
 app.use(errorlogger, errorhandler)
 
-// Inicia el servidor web en el puerto SERVER_PORT
-app.listen(process.env.SERVER_PORT, () => {
-    console.log(`Aplicación de ejemplo escuchando en el puerto ${process.env.SERVER_PORT}`)
+// Inicia el servidor web en el puerto PORT
+app.listen(process.env.PORT, () => {
+    console.log(`Aplicación de ejemplo escuchando en el puerto ${process.env.PORT}`)
 })
