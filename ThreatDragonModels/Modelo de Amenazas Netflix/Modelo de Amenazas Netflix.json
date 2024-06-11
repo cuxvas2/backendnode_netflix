@@ -2554,7 +2554,7 @@
                 "sourceMarker": {
                   "name": ""
                 },
-                "strokeDasharray": null
+                "strokeDasharray": "4 3"
               }
             },
             "width": 200,
@@ -2563,10 +2563,10 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "AgregarArchivo()\nResultado",
+              "name": "AdministrarArchivo()\nResultado",
               "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
+              "outOfScope": true,
+              "reasonOutOfScope": "Este flujo de datos representa una acción dentro del controlador.",
               "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": false,
@@ -2574,20 +2574,20 @@
               "protocol": "",
               "threats": []
             },
-            "id": "54d536f9-e6b4-45f7-acec-db291060d4fa",
+            "id": "dff13205-3d8a-40cf-b326-cc6cfe936046",
+            "labels": [
+              "AdministrarArchivo()\nResultado"
+            ],
             "source": {
-              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
-            },
-            "target": {
               "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
             },
-            "labels": [
-              "AgregarArchivo()\nResultado"
-            ],
+            "target": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
             "vertices": [
               {
-                "x": -20030,
-                "y": -7560
+                "x": -20270,
+                "y": -7400
               }
             ]
           },
@@ -2620,9 +2620,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2328664d-30ef-4fa7-97cf-0ce860d2d883",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 29,
+                  "score": ""
+                }
+              ]
             },
             "id": "4cd7edf6-fc8e-4fba-8e0a-a1cb82724eef",
+            "labels": [
+              "agregarArchivo()"
+            ],
             "source": {
               "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
             },
@@ -2634,9 +2651,6 @@
                 "x": -20030,
                 "y": -7640
               }
-            ],
-            "labels": [
-              "agregarArchivo()"
             ]
           },
           {
@@ -2659,8 +2673,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "AdministrarArchivo()",
-              "description": "",
+              "name": "AgregarArchivo()\nResultado",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2668,71 +2682,37 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "c2359cd4-4929-4468-bfe0-bc83829814c2",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 30,
+                  "score": ""
+                }
+              ]
             },
-            "id": "ba834c48-5190-42e3-8ad8-16de03ee52c5",
+            "id": "54d536f9-e6b4-45f7-acec-db291060d4fa",
+            "labels": [
+              "AgregarArchivo()\nResultado"
+            ],
             "source": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
             },
             "target": {
               "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
             },
             "vertices": [
               {
-                "x": -20270,
-                "y": -7500
+                "x": -20030,
+                "y": -7560
               }
-            ],
-            "labels": [
-              "AdministrarArchivo()"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": "4 3"
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "AdministrarArchivo()\nResultado",
-              "description": "",
-              "outOfScope": true,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "dff13205-3d8a-40cf-b326-cc6cfe936046",
-            "source": {
-              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
-            },
-            "target": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
-            },
-            "vertices": [
-              {
-                "x": -20270,
-                "y": -7400
-              }
-            ],
-            "labels": [
-              "AdministrarArchivo()\nResultado"
             ]
           },
           {
@@ -2756,7 +2736,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "EliminarArchivo()",
-              "description": "",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2764,9 +2744,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "50020aa1-b4e8-4099-9300-e5fcdf94f8c1",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": ""
+                }
+              ]
             },
             "id": "64ccc304-044e-4d8c-bf60-ffe67741251c",
+            "labels": [
+              "EliminarArchivo()"
+            ],
             "source": {
               "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
             },
@@ -2778,9 +2775,6 @@
                 "x": -20020,
                 "y": -7500
               }
-            ],
-            "labels": [
-              "EliminarArchivo()"
             ]
           },
           {
@@ -2804,7 +2798,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "EliminarArchivo()\nResultado",
-              "description": "",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2812,9 +2806,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "79ae02f4-52b1-4f56-bab0-78c212bfbf74",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": ""
+                }
+              ]
             },
             "id": "b095e908-f7aa-46f9-9795-c1f6939943d3",
+            "labels": [
+              "EliminarArchivo()\nResultado"
+            ],
             "source": {
               "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
             },
@@ -2826,9 +2837,6 @@
                 "x": -20010,
                 "y": -7400
               }
-            ],
-            "labels": [
-              "EliminarArchivo()\nResultado"
             ]
           },
           {
@@ -2852,7 +2860,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "tenerArchivo()",
-              "description": "",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2860,9 +2868,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "32b7d2eb-7b1b-44bb-a736-b96cb9fc7433",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": ""
+                }
+              ]
             },
             "id": "6cda8e77-13e2-46f2-a383-94b30e4d0574",
+            "labels": [
+              "ObtenerArchivo()"
+            ],
             "source": {
               "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
             },
@@ -2874,9 +2899,6 @@
                 "x": -20020,
                 "y": -7290
               }
-            ],
-            "labels": [
-              "ObtenerArchivo()"
             ]
           },
           {
@@ -2908,9 +2930,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "b4e6f5dc-09d7-41ba-8cf9-1ab31d6b3210",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                }
+              ]
             },
             "id": "ca3daf62-c8cc-46c5-a0e6-049d308d8de6",
+            "labels": [
+              "ObtenerArchivo()\nResultado"
+            ],
             "source": {
               "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
             },
@@ -2922,9 +2961,69 @@
                 "x": -20030,
                 "y": -7180
               }
-            ],
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "AdministrarArchivo()",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "1811bc3e-7165-41d6-a1fc-4c92240768fb",
+                  "title": "Inyección de código",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría enviar una entrada inyectando código malicioso para intentar obtener privilegios.",
+                  "mitigation": "Todos los datos enviados desde el cliente se validan.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "ba834c48-5190-42e3-8ad8-16de03ee52c5",
             "labels": [
-              "ObtenerArchivo()\nResultado"
+              "AdministrarArchivo()"
+            ],
+            "source": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "target": {
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
+            },
+            "vertices": [
+              {
+                "x": -20270,
+                "y": -7500
+              }
             ]
           },
           {
@@ -3126,8 +3225,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "893662ba-1bfa-47e7-a39d-cc328aa1ae39",
             "zIndex": 14,
+            "id": "893662ba-1bfa-47e7-a39d-cc328aa1ae39",
             "data": {
               "type": "tm.Process",
               "name": "Proceso de\nArchivos",
@@ -4839,6 +4938,6 @@
     ],
     "diagramTop": 9,
     "reviewer": "Victor Augusto Cuevas Barradas",
-    "threatTop": 28
+    "threatTop": 35
   }
 }
