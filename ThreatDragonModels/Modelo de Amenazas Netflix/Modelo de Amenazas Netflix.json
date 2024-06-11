@@ -2,8 +2,8 @@
   "version": "2.2.0",
   "summary": {
     "title": "Modelo de Amenazas Netflix",
-    "owner": "",
-    "description": "",
+    "owner": "Victor Augusto Cuevas Barradas, Fernando Elotlan Morales",
+    "description": "El sitio web de Netflix es un sitio web para brindar información sobre películas. \nSon dos usuarios de la aplicación:\n1. Usuario\n2. Administrador\nEl usuario podrán iniciar sesión y ver películas. \nLos administradores podrán iniciar sesión, administrar usuarios, película, archivos, categorías y poder visualizar la bitácora.",
     "id": 0
   },
   "detail": {
@@ -560,10 +560,56 @@
           }
         ],
         "description": "Diagrama de flujo de datos para el sitio web Netflix"
+      },
+      {
+        "id": 1,
+        "title": "Diagrama de flujo de datos de inicio de sesión del usuario para el sitio web Netflix",
+        "diagramType": "STRIDE",
+        "placeholder": "Descripción de nuevo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": [],
+        "description": "Diagrama de flujo de datos de inicio de sesión del usuario para el sitio web Netflix"
+      },
+      {
+        "id": 2,
+        "title": "Diagrama de flujo de datos de categorías para el sitio web Netflix",
+        "diagramType": "STRIDE",
+        "placeholder": "Descripción de nuevo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": []
+      },
+      {
+        "id": 3,
+        "title": "Diagrama de flujo de datos de archivos para el sitio web Netflix",
+        "diagramType": "STRIDE",
+        "placeholder": "Descripción de nuevo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": []
+      },
+      {
+        "id": 4,
+        "title": "Diagrama de flujo de datos de usuarios para el sitio web Netflix",
+        "diagramType": "STRIDE",
+        "placeholder": "Descripción de nuevo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": []
+      },
+      {
+        "id": 5,
+        "title": "Diagrama de flujo de datos de bitácoras para el sitio web Netflix",
+        "diagramType": "STRIDE",
+        "placeholder": "Descripción de nuevo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": []
       }
     ],
-    "diagramTop": 1,
-    "reviewer": "",
+    "diagramTop": 9,
+    "reviewer": "Victor Augusto Cuevas Barradas",
     "threatTop": 14
   }
 }
