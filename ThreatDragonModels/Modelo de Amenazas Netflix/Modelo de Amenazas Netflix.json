@@ -590,8 +590,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "9a9896c9-1468-41d1-8022-493b7fb2ae49",
             "zIndex": 1,
+            "id": "9a9896c9-1468-41d1-8022-493b7fb2ae49",
             "data": {
               "type": "tm.Actor",
               "name": "Usuario",
@@ -612,6 +612,108 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 15,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 340,
+              "y": 270
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Controlador web"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "83be837a-0b52-4609-9bd2-a12a55c2b2c4",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Process",
+              "name": "Controlador web",
+              "description": "Controlador de entrada que recibe las\npeticiones del usuario para iniciar la sesión.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "82d2ef4e-c9e7-4f36-90e1-2b9d2ea58133",
+                  "title": "Denegación de servicios",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service / Denegación de servicio",
+                  "description": "Un atacante podría denegar\nel acceso a usuarios válidos,\nhaciendo que el servidor\nweb no esté disponible o sea\ninutilizable temporalmente\npor medio del envío de\nmúltiples peticiones\nsimultaneas.",
+                  "mitigation": "Se monitorean las\ndirecciones IP de los\nclientes y al encontrar\nun posible ataque, se\nbloquea el acceso.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 510,
+              "y": 130
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Proceso de Login"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "109fce89-b170-4c67-be83-73f361ef1c2b",
+            "zIndex": 3,
+            "data": {
+              "type": "tm.Process",
+              "name": "Proceso de Login",
+              "description": "Procedimiento que recibe las\npeticiones del usuario para iniciar la sesión.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "4f06458c-52f6-4850-b2cb-8edfbb81771c",
+                  "title": "Ataque de fuerza bruta",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege / Elevación de privilegios",
+                  "description": "Un atacante podría realizar\nun ataque con un\ndiccionario para tratar de\nadivinar la contraseña de los\nusuarios.",
+                  "mitigation": "Se deben bloquear la\ncuenta después de N\nintentos fallidos.\nSe deben validar la\ncomplejidad y longitud\nde las contraseñas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
                   "score": ""
                 }
               ]
@@ -663,6 +765,6 @@
     ],
     "diagramTop": 9,
     "reviewer": "Victor Augusto Cuevas Barradas",
-    "threatTop": 15
+    "threatTop": 17
   }
 }
