@@ -1657,6 +1657,9 @@
               "threats": []
             },
             "id": "b6808cae-c20a-4017-a2b8-8c7e4c9b12dd",
+            "labels": [
+              "AdministrarCategoria()"
+            ],
             "source": {
               "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
             },
@@ -1668,9 +1671,6 @@
                 "x": -20250,
                 "y": -7400
               }
-            ],
-            "labels": [
-              "AdministrarCategoria()"
             ]
           },
           {
@@ -1705,6 +1705,9 @@
               "threats": []
             },
             "id": "75a22c5f-61b1-43f7-90d2-35ee91f5ae90",
+            "labels": [
+              "AdministrarCategoria\nResultado"
+            ],
             "source": {
               "cell": "c0836daf-061c-43a7-acd1-b714ff66ed04"
             },
@@ -1716,57 +1719,6 @@
                 "x": -20330,
                 "y": -7320
               }
-            ],
-            "labels": [
-              "AdministrarCategoria\nResultado"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "AñadirCategoria()\nResultado",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "70bf14cb-8448-44bc-9c10-1d73bd7399a3",
-            "source": {
-              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
-            },
-            "target": {
-              "cell": "c0836daf-061c-43a7-acd1-b714ff66ed04"
-            },
-            "vertices": [
-              {
-                "x": -20470,
-                "y": -7240
-              }
-            ],
-            "labels": [
-              "AñadirCategoria()\nResultado"
             ]
           },
           {
@@ -1790,7 +1742,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "AñadirCategoria()",
-              "description": "",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1798,18 +1750,32 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "d2a864a0-6fb4-4b43-a9ae-a00ff570c34d",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": ""
+                }
+              ]
             },
             "id": "4177f0dd-bea6-4ba0-bf18-b0d91d7791db",
+            "labels": [
+              "AñadirCategoria()"
+            ],
             "source": {
               "cell": "c0836daf-061c-43a7-acd1-b714ff66ed04"
             },
             "target": {
               "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
             },
-            "labels": [
-              "AñadirCategoria()"
-            ],
             "vertices": [
               {
                 "x": -20360,
@@ -1837,8 +1803,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "EliminarCategoria()",
-              "description": "",
+              "name": "AñadirCategoria()\nResultado",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1846,9 +1812,88 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "39e264c3-cc1e-416e-b090-06ffa80a29cc",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "70bf14cb-8448-44bc-9c10-1d73bd7399a3",
+            "labels": [
+              "AñadirCategoria()\nResultado"
+            ],
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "c0836daf-061c-43a7-acd1-b714ff66ed04"
+            },
+            "vertices": [
+              {
+                "x": -20470,
+                "y": -7240
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "EliminarCategoria()",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "939af907-757a-4819-9341-8f9f089868de",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": ""
+                }
+              ]
             },
             "id": "1e6b2e3c-f74d-41ca-a673-191cc048c1d9",
+            "labels": [
+              "EliminarCategoria()"
+            ],
             "source": {
               "cell": "c0836daf-061c-43a7-acd1-b714ff66ed04"
             },
@@ -1860,9 +1905,6 @@
                 "x": -20210,
                 "y": -7180
               }
-            ],
-            "labels": [
-              "EliminarCategoria()"
             ]
           },
           {
@@ -1886,7 +1928,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "EliminarCategoria()\nResultad",
-              "description": "",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1894,9 +1936,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "b646b440-9dc7-4439-8c08-71de66c6ee3f",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": ""
+                }
+              ]
             },
             "id": "47acbcfb-f35a-4ae4-a6d7-70f80d257ed5",
+            "labels": [
+              "EliminarCategoria()\nResultad"
+            ],
             "source": {
               "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
             },
@@ -1908,9 +1967,6 @@
                 "x": -20090,
                 "y": -7200
               }
-            ],
-            "labels": [
-              "EliminarCategoria()\nResultad"
             ]
           },
           {
@@ -1934,7 +1990,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "ObtenerCategorias()",
-              "description": "",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1942,9 +1998,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "e970d592-0695-4327-a5aa-01c5b320b937",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                }
+              ]
             },
             "id": "e91e0d54-a49a-40c9-b3b0-09b88863299e",
+            "labels": [
+              "ObtenerCategorias()"
+            ],
             "source": {
               "cell": "c0836daf-061c-43a7-acd1-b714ff66ed04"
             },
@@ -1956,9 +2029,6 @@
                 "x": -19920,
                 "y": -7210
               }
-            ],
-            "labels": [
-              "ObtenerCategorias()"
             ]
           },
           {
@@ -1982,7 +2052,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "ObtenerCategorias()\nResultado",
-              "description": "",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1990,9 +2060,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "36f0566b-4551-4636-8f42-acb5a2ae5d84",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                }
+              ]
             },
             "id": "0bd14b4d-c221-473b-9acb-d41097316be0",
+            "labels": [
+              "ObtenerCategorias()\nResultado"
+            ],
             "source": {
               "x": -20170,
               "y": -7080
@@ -2005,9 +2092,6 @@
                 "x": -19760,
                 "y": -7220
               }
-            ],
-            "labels": [
-              "ObtenerCategorias()\nResultado"
             ]
           },
           {
@@ -2209,8 +2293,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "c0836daf-061c-43a7-acd1-b714ff66ed04",
             "zIndex": 14,
+            "id": "c0836daf-061c-43a7-acd1-b714ff66ed04",
             "data": {
               "type": "tm.Process",
               "name": "Proceso de \ncategorias",
@@ -4938,6 +5022,6 @@
     ],
     "diagramTop": 9,
     "reviewer": "Victor Augusto Cuevas Barradas",
-    "threatTop": 35
+    "threatTop": 41
   }
 }
