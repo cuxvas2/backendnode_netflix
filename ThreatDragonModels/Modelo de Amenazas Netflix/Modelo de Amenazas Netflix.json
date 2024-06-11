@@ -2257,8 +2257,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "94396f50-16e1-4589-85ca-2d4475538379",
             "zIndex": 1,
+            "id": "94396f50-16e1-4589-85ca-2d4475538379",
             "data": {
               "type": "tm.Actor",
               "name": "Usuario",
@@ -2305,8 +2305,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528",
             "zIndex": 2,
+            "id": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528",
             "data": {
               "type": "tm.Process",
               "name": "Sitio Web Netflix",
@@ -2381,15 +2381,15 @@
               ]
             },
             "id": "4f47affe-299e-4fb4-9337-f00ef7a69ae3",
+            "labels": [
+              "Web Request"
+            ],
             "source": {
               "cell": "94396f50-16e1-4589-85ca-2d4475538379"
             },
             "target": {
               "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
             },
-            "labels": [
-              "Web Request"
-            ],
             "vertices": [
               {
                 "x": -20440,
@@ -2443,6 +2443,9 @@
               ]
             },
             "id": "394c59d5-fac5-41f9-a71a-63876729317b",
+            "labels": [
+              "Web Response"
+            ],
             "source": {
               "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
             },
@@ -2454,9 +2457,6 @@
                 "x": -20530,
                 "y": -7470
               }
-            ],
-            "labels": [
-              "Web Response"
             ]
           },
           {
@@ -2491,15 +2491,15 @@
               "threats": []
             },
             "id": "153a44ea-b745-477b-98dd-8786babdffec",
+            "labels": [
+              "Páginas"
+            ],
             "source": {
               "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
             },
             "target": {
               "cell": "7ff635e3-666a-45ae-b911-bae6c8938c5f"
-            },
-            "labels": [
-              "Páginas"
-            ]
+            }
           },
           {
             "shape": "flow",
@@ -2533,14 +2533,62 @@
               "threats": []
             },
             "id": "0774abf2-626d-4ee4-afea-4a0c6e7906d9",
+            "labels": [
+              "Lee web app config"
+            ],
             "source": {
               "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
             },
             "target": {
               "cell": "36635cbd-c4f5-44bc-99a1-d5deb1bef80d"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "AgregarArchivo()\nResultado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "54d536f9-e6b4-45f7-acec-db291060d4fa",
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
             },
             "labels": [
-              "Lee web app config"
+              "AgregarArchivo()\nResultado"
+            ],
+            "vertices": [
+              {
+                "x": -20030,
+                "y": -7560
+              }
             ]
           },
           {
@@ -2563,8 +2611,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Queries",
-              "description": "Instrucciones SQL enviadas hacía la BD",
+              "name": "agregarArchivo()",
+              "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2572,31 +2620,311 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [
-                {
-                  "id": "971fe012-f776-46de-ac6d-fd70401dad6e",
-                  "title": "Ataque Man In the Middle",
-                  "status": "Mitigated",
-                  "severity": "Low",
-                  "type": "Information disclosure / Brecha de información",
-                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada).",
-                  "mitigation": "Utilizar una conexión privada y cifrada en el servidor de base de datos",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 14,
-                  "score": ""
-                }
-              ]
+              "threats": []
             },
-            "id": "28331071-6e35-4e16-b79e-ab9f699dceb0",
+            "id": "4cd7edf6-fc8e-4fba-8e0a-a1cb82724eef",
             "source": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
             },
             "target": {
               "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
             },
+            "vertices": [
+              {
+                "x": -20030,
+                "y": -7640
+              }
+            ],
             "labels": [
-              "Queries"
+              "agregarArchivo()"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "AdministrarArchivo()",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "ba834c48-5190-42e3-8ad8-16de03ee52c5",
+            "source": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "target": {
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
+            },
+            "vertices": [
+              {
+                "x": -20270,
+                "y": -7500
+              }
+            ],
+            "labels": [
+              "AdministrarArchivo()"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": "4 3"
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "AdministrarArchivo()\nResultado",
+              "description": "",
+              "outOfScope": true,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "dff13205-3d8a-40cf-b326-cc6cfe936046",
+            "source": {
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
+            },
+            "target": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "vertices": [
+              {
+                "x": -20270,
+                "y": -7400
+              }
+            ],
+            "labels": [
+              "AdministrarArchivo()\nResultado"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "EliminarArchivo()",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "64ccc304-044e-4d8c-bf60-ffe67741251c",
+            "source": {
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
+            },
+            "target": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "vertices": [
+              {
+                "x": -20020,
+                "y": -7500
+              }
+            ],
+            "labels": [
+              "EliminarArchivo()"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "EliminarArchivo()\nResultado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "b095e908-f7aa-46f9-9795-c1f6939943d3",
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
+            },
+            "vertices": [
+              {
+                "x": -20010,
+                "y": -7400
+              }
+            ],
+            "labels": [
+              "EliminarArchivo()\nResultado"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "tenerArchivo()",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "6cda8e77-13e2-46f2-a383-94b30e4d0574",
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
+            },
+            "vertices": [
+              {
+                "x": -20020,
+                "y": -7290
+              }
+            ],
+            "labels": [
+              "ObtenerArchivo()"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "ObtenerArchivo()\nResultado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "ca3daf62-c8cc-46c5-a0e6-049d308d8de6",
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "893662ba-1bfa-47e7-a39d-cc328aa1ae39"
+            },
+            "vertices": [
+              {
+                "x": -20030,
+                "y": -7180
+              }
+            ],
+            "labels": [
+              "ObtenerArchivo()\nResultado"
             ]
           },
           {
@@ -2623,8 +2951,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "7ff635e3-666a-45ae-b911-bae6c8938c5f",
             "zIndex": 11,
+            "id": "7ff635e3-666a-45ae-b911-bae6c8938c5f",
             "data": {
               "type": "tm.Store",
               "name": "Paginas web en disco",
@@ -2678,8 +3006,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "36635cbd-c4f5-44bc-99a1-d5deb1bef80d",
             "zIndex": 12,
+            "id": "36635cbd-c4f5-44bc-99a1-d5deb1bef80d",
             "data": {
               "type": "tm.Store",
               "name": "Web Application Config",
@@ -2711,8 +3039,8 @@
           },
           {
             "position": {
-              "x": -20140,
-              "y": -7520
+              "x": -19920,
+              "y": -7480
             },
             "size": {
               "width": 120,
@@ -2733,8 +3061,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "df6f51fb-5df7-4cb0-a307-0c87dc30951d",
             "zIndex": 13,
+            "id": "df6f51fb-5df7-4cb0-a307-0c87dc30951d",
             "data": {
               "type": "tm.Store",
               "name": "Base de datos",
@@ -2775,6 +3103,43 @@
                   "score": ""
                 }
               ]
+            }
+          },
+          {
+            "position": {
+              "x": -20200,
+              "y": -7480
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Proceso de\nArchivos"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "893662ba-1bfa-47e7-a39d-cc328aa1ae39",
+            "zIndex": 14,
+            "data": {
+              "type": "tm.Process",
+              "name": "Proceso de\nArchivos",
+              "description": "Proceso para la carga de archivos",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
             }
           }
         ],
