@@ -578,7 +578,8 @@
         "placeholder": "Descripción de nuevo diagrama STRIDE",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.2.0",
-        "cells": []
+        "cells": [],
+        "description": "Diagrama de flujo de datos de categorías para el sitio web Netflix"
       },
       {
         "id": 3,
@@ -587,7 +588,8 @@
         "placeholder": "Descripción de nuevo diagrama STRIDE",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.2.0",
-        "cells": []
+        "cells": [],
+        "description": "Diagrama de flujo de datos de archivos para el sitio web Netflix"
       },
       {
         "id": 4,
@@ -596,7 +598,8 @@
         "placeholder": "Descripción de nuevo diagrama STRIDE",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.2.0",
-        "cells": []
+        "cells": [],
+        "description": "Diagrama de flujo de datos de usuarios para el sitio web Netflix"
       },
       {
         "id": 5,
@@ -605,7 +608,8 @@
         "placeholder": "Descripción de nuevo diagrama STRIDE",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.2.0",
-        "cells": []
+        "cells": [],
+        "description": "Diagrama de flujo de datos de bitácoras para el sitio web Netflix"
       }
     ],
     "diagramTop": 9,
