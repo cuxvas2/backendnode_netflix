@@ -11,7 +11,7 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "Nuevo diagrama STRIDE",
+        "title": "Diagrama de flujo de datos para el sitio web Netflix",
         "diagramType": "STRIDE",
         "placeholder": "Descripción de nuevo diagrama STRIDE",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -558,7 +558,8 @@
               ]
             }
           }
-        ]
+        ],
+        "description": "Diagrama de flujo de datos para el sitio web Netflix"
       }
     ],
     "diagramTop": 1,
