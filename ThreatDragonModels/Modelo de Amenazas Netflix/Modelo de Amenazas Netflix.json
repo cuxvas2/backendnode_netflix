@@ -3174,6 +3174,1145 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
+            "id": "94396f50-16e1-4589-85ca-2d4475538379",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Usuario",
+              "description": "(1) Usuario web anónimo.\n(2) Usuario con credenciales de\ninicio de sesión válidas.\n(3) Usuario con credenciales de\ninicio de sesión no válidas.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "ecce8d48-b822-4e2e-a216-9946b9d6384d",
+                  "title": "Suplantación de identidad",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Spoofing / Spoofing",
+                  "description": "Acción de amenaza destinada a acceder y utilizar las credenciales de otro usuario, como el nombre de usuario y la contraseña.",
+                  "mitigation": "1. Autenticación adecuada\n2. Proteger datos secretos\n3. No almacenar secretos",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": -20390,
+              "y": -7480
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Sitio Web Netflix"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "id": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528",
+            "data": {
+              "type": "tm.Process",
+              "name": "Sitio Web Netflix",
+              "description": "Sitio web de netrflix, se ejecutará sobre Linux usando los servicios de Azure",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": true,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "19daac80-0fb6-4933-b64b-b7afeaadfd3b",
+                  "title": "Denegación de servicios",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service / Denegación de servicio",
+                  "description": "Un atacante podría denegar el acceso a usuarios válidos, haciendo que el servidor web no esté disponible o sea inutilizable temporalmente por medio del envío de múltiples peticiones simultaneas.",
+                  "mitigation": "Se monitorean las direcciones IP de los clientes y al encontrar un posible ataque, se bloquea el acceso. Se considera contratar un servicio de VPN para ocultar la dirección IP pública a los clientes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Web Request",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "id": "e63ce64b-42e4-4420-be9c-eb53f554f840",
+                  "title": "Divulgación de la información ",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Las solicitudes se transmiten a través de la internet y podrían ser interceptadas por un atacante",
+                  "mitigation": "Las solicitudes deben requerir HTTPS. HTTP no debe ser compatible. Direccionar el trafico de HTTP a HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "4f47affe-299e-4fb4-9337-f00ef7a69ae3",
+            "labels": [
+              "Web Request"
+            ],
+            "source": {
+              "cell": "94396f50-16e1-4589-85ca-2d4475538379"
+            },
+            "target": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "vertices": [
+              {
+                "x": -20440,
+                "y": -7610
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Web Response",
+              "description": "Respuestas enviadas por la aplicación hacia los usuarios.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "id": "cf33ae0c-901b-4363-bd2d-e74c560b54a9",
+                  "title": "Divulgación de la información ",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Las solicitudes se transmiten a través de la internet y podrían ser interceptadas por un atacante\n",
+                  "mitigation": "Las solicitudes deben requerir HTTPS. HTTP no debe ser compatible. Direccionar el trafico de HTTP a HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "394c59d5-fac5-41f9-a71a-63876729317b",
+            "labels": [
+              "Web Response"
+            ],
+            "source": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "target": {
+              "cell": "94396f50-16e1-4589-85ca-2d4475538379"
+            },
+            "vertices": [
+              {
+                "x": -20530,
+                "y": -7470
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": "4 3"
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Páginas",
+              "description": "Páginas web leídas desde el disco ",
+              "outOfScope": true,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "153a44ea-b745-477b-98dd-8786babdffec",
+            "labels": [
+              "Páginas"
+            ],
+            "source": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "target": {
+              "cell": "7ff635e3-666a-45ae-b911-bae6c8938c5f"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": "4 3"
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Lee web app config",
+              "description": "Archivo físico de configuración leído desde el disco",
+              "outOfScope": true,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "0774abf2-626d-4ee4-afea-4a0c6e7906d9",
+            "labels": [
+              "Lee web app config"
+            ],
+            "source": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "target": {
+              "cell": "36635cbd-c4f5-44bc-99a1-d5deb1bef80d"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "AdministarUsuario()",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "32929c29-c552-48f8-876d-8313617c1fac",
+            "source": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "target": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "vertices": [
+              {
+                "x": -20260,
+                "y": -7400
+              }
+            ],
+            "labels": [
+              "AdministarUsuario()"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "ActualizarUsuario\nSQL Query\nResultado",
+              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "bce4f68b-a47c-4a2e-b449-6e72185236ec",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "d66ef472-0672-4a94-b938-eba9853cc3be",
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "vertices": [
+              {
+                "x": -20020,
+                "y": -7090
+              }
+            ],
+            "labels": [
+              "ActualizarUsuario\nSQL Query\nResultado"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "ActualizarUsuario\nSQL Query",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "15bd78b1-2998-4b25-a68d-4c728d33fd6a",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "d23306da-08bc-4918-aea5-4df434e1a9bf",
+            "source": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "target": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "vertices": [
+              {
+                "x": -20030,
+                "y": -7160
+              }
+            ],
+            "labels": [
+              "ActualizarUsuario\nSQL Query"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "EliminarUsuario \nSQL Query\nResultado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "bada59ab-e1f8-4f95-bb85-dd19526da987",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "1a357214-492f-4cdd-ac1d-bdd477f934c1",
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "vertices": [
+              {
+                "x": -20030,
+                "y": -7260
+              }
+            ],
+            "labels": [
+              "EliminarUsuario \nSQL Query\nResultado"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "EliminarUsuario \nSQL Query",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "032fec4d-1f8e-4922-b752-17d02999cd38",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "cda6c16f-4254-437e-bc9c-71f1a4bb4910",
+            "source": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "target": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "vertices": [
+              {
+                "x": -20030,
+                "y": -7330
+              }
+            ],
+            "labels": [
+              "EliminarUsuario \nSQL Query"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "AgregarUsuario\nSQL Query",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "ed1d3ca8-c37d-4083-b8d8-812412e20dc2",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "345046b3-517c-4b69-9bba-92500d6f21fc",
+            "source": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "target": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "vertices": [
+              {
+                "x": -20040,
+                "y": -7400
+              }
+            ],
+            "labels": [
+              "AgregarUsuario\nSQL Query"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "AgregarUsuario\nSQL Query\nResultado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "1fc88b06-3f4c-4962-abff-0703fd66d31e",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "35f116e9-faf6-4f5f-aff2-52646ffbe59d",
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "vertices": [
+              {
+                "x": -20040,
+                "y": -7490
+              }
+            ],
+            "labels": [
+              "AgregarUsuario\nSQL Query\nResultado"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "ObtenerUsuarios\nSQL Query",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "0ff82bfd-641d-4e7e-a23b-987cfbcb1fc4",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 27,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "ed3b0fec-d712-41ad-bbcd-f8862bdeab54",
+            "source": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "target": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "vertices": [
+              {
+                "x": -20040,
+                "y": -7560
+              }
+            ],
+            "labels": [
+              "ObtenerUsuarios\nSQL Query"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "ObtenerUsuarios\nSQL Query\nResultado",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "6489b854-8576-4d63-bc02-0d2d9bc7e5fd",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
+                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 28,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "492aee28-eafb-433b-b6bf-7e6abc8bf3fc",
+            "source": {
+              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
+            },
+            "target": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "vertices": [
+              {
+                "x": -20040,
+                "y": -7620
+              }
+            ],
+            "labels": [
+              "ObtenerUsuarios\nSQL Query\nResultado"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": "4 3"
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "AdministarUsuario()\nResultado",
+              "description": "",
+              "outOfScope": true,
+              "reasonOutOfScope": "Este flujo de datos representa una\nacción dentro del controlador.",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "41aa3836-4f7a-4e14-abcf-94d335af5950",
+            "source": {
+              "cell": "af1aee21-a5ce-49de-870b-666af5993778"
+            },
+            "target": {
+              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
+            },
+            "vertices": [
+              {
+                "x": -20260,
+                "y": -7510
+              }
+            ],
+            "labels": [
+              "AdministarUsuario()\nResultado"
+            ]
+          },
+          {
+            "position": {
+              "x": -20680,
+              "y": -7307
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Paginas web en disco"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 11,
+            "id": "7ff635e3-666a-45ae-b911-bae6c8938c5f",
+            "data": {
+              "type": "tm.Store",
+              "name": "Paginas web en disco",
+              "description": "Páginas físicas almacenadas en el disco",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "c1f72444-1763-4ffb-82c1-4f1de3a91f90",
+                  "title": "Modificación sin autorización ",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering / Manipulación",
+                  "description": "Un atacante puede modificar las páginas web sin autorización",
+                  "mitigation": "Únicamente el usuario administrador tiene acceso de escritura",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": -20450,
+              "y": -7271
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Web Application Config"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 12,
+            "id": "36635cbd-c4f5-44bc-99a1-d5deb1bef80d",
+            "data": {
+              "type": "tm.Store",
+              "name": "Web Application Config",
+              "description": "Archivo de configuración de la aplicación ",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "f63e9743-e092-4d3e-b7ef-5c93e829d97e",
+                  "title": "Las credenciales deben estar cifradas",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría obtener las credenciales de la base de datos y utilizarlas para realizar consultas no autorizadas.",
+                  "mitigation": "Utilice un firewall para restringir el acceso a la base de datos únicamente a la dirección IP del trabajador en segundo plano.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": -19930,
+              "y": -7480
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Base de datos"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 13,
+            "id": "df6f51fb-5df7-4cb0-a307-0c87dc30951d",
+            "data": {
+              "type": "tm.Store",
+              "name": "Base de datos",
+              "description": "Será un SQL Server alojado en los servicios de Azure",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "effee172-f940-4624-ba35-3a5616bbec01",
+                  "title": "Acceso no autorizado",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría enviar una consulta a la BD",
+                  "mitigation": "Requerir que todas las consultas sean autenticadas",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                },
+                {
+                  "id": "72e01c1e-1fce-4230-b107-5c323f977fef",
+                  "title": "Robo de credenciales",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría obtener las credenciales de la base de datos para realizar consultas no autorizadas",
+                  "mitigation": "Utilizar un firewall para restringir el acceso a la base de datos únicamente a la dirección IP de la API",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": -20190,
+              "y": -7480
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Proceso de\nusuarios"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "af1aee21-a5ce-49de-870b-666af5993778",
+            "zIndex": 14,
+            "data": {
+              "type": "tm.Process",
+              "name": "Proceso de\nusuarios",
+              "description": "Proceso que recibe las peticiones para administrar los usuarios ",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "a896a6ad-8492-4e02-bb60-94055af434d5",
+                  "title": "Consultas no autorizadas",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure / Brecha de información",
+                  "description": "Un atacante podría obtener credenciales de administrador o intentar hacer consultas sin tener esos permisos",
+                  "mitigation": "Validar el JWT que pertenezca a un administrador antes de realizar cualquier consulta",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                }
+              ]
+            }
+          }
+        ],
+        "description": "Diagrama de flujo de datos de usuarios para el sitio web Netflix"
+      },
+      {
+        "id": 5,
+        "title": "Diagrama de flujo de datos de bitácoras para el sitio web Netflix",
+        "diagramType": "STRIDE",
+        "placeholder": "Descripción de nuevo diagrama STRIDE",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": [
+          {
+            "position": {
+              "x": -20680,
+              "y": -7640
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Usuario"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
             "id": "94396f50-16e1-4589-85ca-2d4475538379",
             "zIndex": 1,
             "data": {
@@ -3695,903 +4834,11 @@
             }
           }
         ],
-        "description": "Diagrama de flujo de datos de usuarios para el sitio web Netflix"
-      },
-      {
-        "id": 5,
-        "title": "Diagrama de flujo de datos de bitácoras para el sitio web Netflix",
-        "diagramType": "STRIDE",
-        "placeholder": "Descripción de nuevo diagrama STRIDE",
-        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.2.0",
-        "cells": [
-          {
-            "position": {
-              "x": -20680,
-              "y": -7640
-            },
-            "size": {
-              "width": 112.5,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Usuario"
-              },
-              "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "actor",
-            "zIndex": 1,
-            "id": "94396f50-16e1-4589-85ca-2d4475538379",
-            "data": {
-              "type": "tm.Actor",
-              "name": "Usuario",
-              "description": "(1) Usuario web anónimo.\n(2) Usuario con credenciales de\ninicio de sesión válidas.\n(3) Usuario con credenciales de\ninicio de sesión no válidas.",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "providesAuthentication": false,
-              "threats": [
-                {
-                  "id": "ecce8d48-b822-4e2e-a216-9946b9d6384d",
-                  "title": "Suplantación de identidad",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Spoofing / Spoofing",
-                  "description": "Acción de amenaza destinada a acceder y utilizar las credenciales de otro usuario, como el nombre de usuario y la contraseña.",
-                  "mitigation": "1. Autenticación adecuada\n2. Proteger datos secretos\n3. No almacenar secretos",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 1,
-                  "score": ""
-                }
-              ]
-            }
-          },
-          {
-            "position": {
-              "x": -20390,
-              "y": -7480
-            },
-            "size": {
-              "width": 60,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Sitio Web Netflix"
-              },
-              "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "process",
-            "zIndex": 2,
-            "id": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528",
-            "data": {
-              "type": "tm.Process",
-              "name": "Sitio Web Netflix",
-              "description": "Sitio web de netrflix, se ejecutará sobre Linux usando los servicios de Azure",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "handlesCardPayment": false,
-              "handlesGoodsOrServices": false,
-              "isWebApplication": true,
-              "privilegeLevel": "",
-              "threats": [
-                {
-                  "id": "19daac80-0fb6-4933-b64b-b7afeaadfd3b",
-                  "title": "Denegación de servicios",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Denial of service / Denegación de servicio",
-                  "description": "Un atacante podría denegar el acceso a usuarios válidos, haciendo que el servidor web no esté disponible o sea inutilizable temporalmente por medio del envío de múltiples peticiones simultaneas.",
-                  "mitigation": "Se monitorean las direcciones IP de los clientes y al encontrar un posible ataque, se bloquea el acceso. Se considera contratar un servicio de VPN para ocultar la dirección IP pública a los clientes.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 2,
-                  "score": ""
-                }
-              ]
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Web Request",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "HTTPS",
-              "threats": [
-                {
-                  "id": "e63ce64b-42e4-4420-be9c-eb53f554f840",
-                  "title": "Divulgación de la información ",
-                  "status": "Mitigated",
-                  "severity": "High",
-                  "type": "Information disclosure / Brecha de información",
-                  "description": "Las solicitudes se transmiten a través de la internet y podrían ser interceptadas por un atacante",
-                  "mitigation": "Las solicitudes deben requerir HTTPS. HTTP no debe ser compatible. Direccionar el trafico de HTTP a HTTPS",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 3,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "4f47affe-299e-4fb4-9337-f00ef7a69ae3",
-            "labels": [
-              "Web Request"
-            ],
-            "source": {
-              "cell": "94396f50-16e1-4589-85ca-2d4475538379"
-            },
-            "target": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
-            },
-            "vertices": [
-              {
-                "x": -20440,
-                "y": -7610
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Web Response",
-              "description": "Respuestas enviadas por la aplicación hacia los usuarios.",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": true,
-              "isPublicNetwork": false,
-              "protocol": "HTTPS",
-              "threats": [
-                {
-                  "id": "cf33ae0c-901b-4363-bd2d-e74c560b54a9",
-                  "title": "Divulgación de la información ",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure / Brecha de información",
-                  "description": "Las solicitudes se transmiten a través de la internet y podrían ser interceptadas por un atacante\n",
-                  "mitigation": "Las solicitudes deben requerir HTTPS. HTTP no debe ser compatible. Direccionar el trafico de HTTP a HTTPS",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 9,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "394c59d5-fac5-41f9-a71a-63876729317b",
-            "labels": [
-              "Web Response"
-            ],
-            "source": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
-            },
-            "target": {
-              "cell": "94396f50-16e1-4589-85ca-2d4475538379"
-            },
-            "vertices": [
-              {
-                "x": -20530,
-                "y": -7470
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": "4 3"
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Páginas",
-              "description": "Páginas web leídas desde el disco ",
-              "outOfScope": true,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "153a44ea-b745-477b-98dd-8786babdffec",
-            "labels": [
-              "Páginas"
-            ],
-            "source": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
-            },
-            "target": {
-              "cell": "7ff635e3-666a-45ae-b911-bae6c8938c5f"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": "4 3"
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Lee web app config",
-              "description": "Archivo físico de configuración leído desde el disco",
-              "outOfScope": true,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "0774abf2-626d-4ee4-afea-4a0c6e7906d9",
-            "labels": [
-              "Lee web app config"
-            ],
-            "source": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
-            },
-            "target": {
-              "cell": "36635cbd-c4f5-44bc-99a1-d5deb1bef80d"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": "4 3"
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "AdministrarBitacoras\nResultado",
-              "description": "",
-              "outOfScope": true,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "1986e94e-bcfe-4657-9a28-9a84a290b84e",
-            "source": {
-              "x": -20180,
-              "y": -7470
-            },
-            "target": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
-            },
-            "vertices": [
-              {
-                "x": -20240,
-                "y": -7510
-              }
-            ],
-            "labels": [
-              "AdministrarBitacoras\nResultado"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "AdministrarBitacoras",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "81b7b59b-ca3b-47e4-8fba-0d97f232a3a9",
-            "source": {
-              "cell": "6a76ae41-6f53-4f2c-baf3-df9a06d7a528"
-            },
-            "target": {
-              "cell": "5c1b0faa-afaf-470c-82f0-ee808a87563c"
-            },
-            "vertices": [
-              {
-                "x": -20240,
-                "y": -7370
-              }
-            ],
-            "labels": [
-              "AdministrarBitacoras"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "AñadirBitacora \nSQL Query\nResultado",
-              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "b6c97e20-809f-4dd0-863d-130791a6d1b4",
-                  "title": "Ataque Man in the middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada",
-                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 21,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "20c02dc7-cc01-42a6-972a-dce85a3406fa",
-            "source": {
-              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
-            },
-            "target": {
-              "cell": "5c1b0faa-afaf-470c-82f0-ee808a87563c"
-            },
-            "vertices": [
-              {
-                "x": -20030,
-                "y": -7560
-              }
-            ],
-            "labels": [
-              "AñadirBitacora \nSQL Query\nResultado"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "AñadirBitacora \nSQL Query",
-              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "d5c1f297-3439-4603-ad85-18fc8b491085",
-                  "title": "Ataque Man in the middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
-                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 22,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "a1755038-8c0d-4e55-9ef6-1b95088f21e7",
-            "source": {
-              "cell": "5c1b0faa-afaf-470c-82f0-ee808a87563c"
-            },
-            "target": {
-              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
-            },
-            "vertices": [
-              {
-                "x": -20040,
-                "y": -7500
-              }
-            ],
-            "labels": [
-              "AñadirBitacora \nSQL Query"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "ObtenerBitacora\nSQL Query\nResultado",
-              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "b9916800-0254-4642-affe-324e065b0b13",
-                  "title": "Ataque Man in the middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
-                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 23,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "490c56f5-402e-4c6f-8f70-28bd6632fd1f",
-            "source": {
-              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
-            },
-            "target": {
-              "cell": "5c1b0faa-afaf-470c-82f0-ee808a87563c"
-            },
-            "vertices": [
-              {
-                "x": -20030,
-                "y": -7400
-              }
-            ],
-            "labels": [
-              "ObtenerBitacora\nSQL Query\nResultado\n"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "ObtenerBitacora\nSQL Query",
-              "description": "Instrucciones de SQL enviadas hacia la base de datos.\n",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "b5243afa-20a3-4346-a66c-e21d20a16991",
-                  "title": "Ataque Man in the middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Un atacante podría interceptar las consultas de la base de datos en tránsito y obtener información confidencial, como credenciales de la base de datos, parámetros de consulta o resultados de la consulta (es poco probable ya que el flujo de datos se realiza a través de una red privada\n",
-                  "mitigation": "Aplicar una conexión cifrada en el servidor de base de datos.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 24,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "54417957-7b2f-4989-8cb1-bebd11f6c1bb",
-            "source": {
-              "cell": "5c1b0faa-afaf-470c-82f0-ee808a87563c"
-            },
-            "target": {
-              "cell": "df6f51fb-5df7-4cb0-a307-0c87dc30951d"
-            },
-            "vertices": [
-              {
-                "x": -20030,
-                "y": -7340
-              }
-            ],
-            "labels": [
-              "ObtenerBitacora\nSQL Query"
-            ]
-          },
-          {
-            "position": {
-              "x": -20680,
-              "y": -7307
-            },
-            "size": {
-              "width": 120,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Paginas web en disco"
-              },
-              "topLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              },
-              "bottomLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "store",
-            "zIndex": 11,
-            "id": "7ff635e3-666a-45ae-b911-bae6c8938c5f",
-            "data": {
-              "type": "tm.Store",
-              "name": "Paginas web en disco",
-              "description": "Páginas físicas almacenadas en el disco",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isALog": false,
-              "isEncrypted": false,
-              "isSigned": false,
-              "storesCredentials": false,
-              "storesInventory": false,
-              "threats": [
-                {
-                  "id": "c1f72444-1763-4ffb-82c1-4f1de3a91f90",
-                  "title": "Modificación sin autorización ",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering / Manipulación",
-                  "description": "Un atacante puede modificar las páginas web sin autorización",
-                  "mitigation": "Únicamente el usuario administrador tiene acceso de escritura",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 10,
-                  "score": ""
-                }
-              ]
-            }
-          },
-          {
-            "position": {
-              "x": -20450,
-              "y": -7271
-            },
-            "size": {
-              "width": 120,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Web Application Config"
-              },
-              "topLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              },
-              "bottomLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "store",
-            "zIndex": 12,
-            "id": "36635cbd-c4f5-44bc-99a1-d5deb1bef80d",
-            "data": {
-              "type": "tm.Store",
-              "name": "Web Application Config",
-              "description": "Archivo de configuración de la aplicación ",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isALog": false,
-              "isEncrypted": false,
-              "isSigned": false,
-              "storesCredentials": false,
-              "storesInventory": false,
-              "threats": [
-                {
-                  "id": "f63e9743-e092-4d3e-b7ef-5c93e829d97e",
-                  "title": "Las credenciales deben estar cifradas",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure / Brecha de información",
-                  "description": "Un atacante podría obtener las credenciales de la base de datos y utilizarlas para realizar consultas no autorizadas.",
-                  "mitigation": "Utilice un firewall para restringir el acceso a la base de datos únicamente a la dirección IP del trabajador en segundo plano.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 11,
-                  "score": ""
-                }
-              ]
-            }
-          },
-          {
-            "position": {
-              "x": -19930,
-              "y": -7460
-            },
-            "size": {
-              "width": 120,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Base de datos"
-              },
-              "topLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              },
-              "bottomLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "store",
-            "zIndex": 13,
-            "id": "df6f51fb-5df7-4cb0-a307-0c87dc30951d",
-            "data": {
-              "type": "tm.Store",
-              "name": "Base de datos",
-              "description": "Será un SQL Server alojado en los servicios de Azure",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isALog": false,
-              "isEncrypted": false,
-              "isSigned": false,
-              "storesCredentials": false,
-              "storesInventory": false,
-              "threats": [
-                {
-                  "id": "effee172-f940-4624-ba35-3a5616bbec01",
-                  "title": "Acceso no autorizado",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure / Brecha de información",
-                  "description": "Un atacante podría enviar una consulta a la BD",
-                  "mitigation": "Requerir que todas las consultas sean autenticadas",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 12,
-                  "score": ""
-                },
-                {
-                  "id": "72e01c1e-1fce-4230-b107-5c323f977fef",
-                  "title": "Robo de credenciales",
-                  "status": "Mitigated",
-                  "severity": "High",
-                  "type": "Information disclosure / Brecha de información",
-                  "description": "Un atacante podría obtener las credenciales de la base de datos para realizar consultas no autorizadas",
-                  "mitigation": "Utilizar un firewall para restringir el acceso a la base de datos únicamente a la dirección IP de la API",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 13,
-                  "score": ""
-                }
-              ]
-            }
-          },
-          {
-            "position": {
-              "x": -20180,
-              "y": -7480
-            },
-            "size": {
-              "width": 60,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Proceso de\nbitácoras "
-              },
-              "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "process",
-            "id": "5c1b0faa-afaf-470c-82f0-ee808a87563c",
-            "zIndex": 14,
-            "data": {
-              "type": "tm.Process",
-              "name": "Proceso de\nbitácoras ",
-              "description": "Procedimiento que recibe las peticiones para administrar bitácoras",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "handlesCardPayment": false,
-              "handlesGoodsOrServices": false,
-              "isWebApplication": false,
-              "privilegeLevel": "",
-              "threats": [
-                {
-                  "id": "59c70ea8-47d6-4495-b6d6-9401d16a16ce",
-                  "title": "Robo de identidad",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Un atacante sin autorización podría hacer consultas sin autorización ",
-                  "mitigation": "Se debe comprobar la identidad de la persona que hace las consultas",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 20,
-                  "score": ""
-                }
-              ]
-            }
-          }
-        ],
         "description": "Diagrama de flujo de datos de bitácoras para el sitio web Netflix"
       }
     ],
     "diagramTop": 9,
     "reviewer": "Victor Augusto Cuevas Barradas",
-    "threatTop": 24
+    "threatTop": 28
   }
 }
